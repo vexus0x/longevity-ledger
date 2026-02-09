@@ -1,8 +1,8 @@
 import React from 'react';
-import { FlaskConical, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { FlaskConical, AlertTriangle, CheckCircle, ExternalLink } from 'lucide-react';
 import { PROTOCOLS } from '../data/longevity';
 
-const Protocols: React.FC = () => {
+const protocols: React.FC = () => {
   const getEvidenceLabel = (level: string) => {
     switch (level) {
       case 'animal': return 'Animal Studies';
@@ -41,7 +41,7 @@ const Protocols: React.FC = () => {
           <h1 style={{ fontSize: '2.5rem' }}>Protocol Database</h1>
           <p style={{ maxWidth: '700px' }}>
             Evidence-based guide to longevity interventions. Each protocol rated by 
-            scientific evidence level, with benefits, risks, and dosing information.
+            scientific evidence level, with benefits, risks, and source references.
           </p>
         </div>
       </section>
@@ -110,9 +110,18 @@ const Protocols: React.FC = () => {
                 </div>
 
                 {protocol.sources && (
-                  <div className="mt-2" style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-                    <Info size={12} style={{ display: 'inline', marginRight: '0.25rem' }} />
-                    Sources: {protocol.sources.join(', ')}
+                  <div className="mt-2" style={{ 
+                    padding: '0.75rem', 
+                    background: 'var(--surface-light)', 
+                    borderRadius: '8px',
+                    fontSize: '0.8rem'
+                  }}>
+                    <div style={{ color: 'var(--text-muted)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <ExternalLink size={12} /> Sources
+                    </div>
+                    <div style={{ color: 'var(--text)' }}>
+                      {protocol.sources.join(' • ')}
+                    </div>
                   </div>
                 )}
               </div>
@@ -124,4 +133,4 @@ const Protocols: React.FC = () => {
   );
 };
 
-export default Protocols;
+export default protocols;

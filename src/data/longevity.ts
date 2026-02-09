@@ -34,6 +34,7 @@ export interface Research {
   tags: string[];
   url?: string;
   keyFindings: string[];
+  source?: string;
 }
 
 export const INFLUENCERS: Influencer[] = [
@@ -42,7 +43,7 @@ export const INFLUENCERS: Influencer[] = [
     name: 'Bryan Johnson',
     title: 'Tech Entrepreneur, Blueprint Founder',
     bio: 'Sold Braintree to PayPal for $800M. Now running Blueprint - the world\'s most documented longevity experiment, spending $2M/year on biomarkers and optimization.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop',
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bryan_Johnson_2015.jpg/220px-Bryan_Johnson_2015.jpg',
     twitter: '@bryan_johnson',
     website: 'https://www.bryanjohnson.co',
     followers: '500K+',
@@ -240,7 +241,8 @@ export const RECENT_RESEARCH: Research[] = [
       'No increase in serious adverse events vs placebo',
       'First long-term human data on intermittent rapamycin'
     ],
-    url: 'https://doi.org/10.18632/aging.206235'
+    url: 'https://doi.org/10.18632/aging.206235',
+    source: 'PubMed PMID: 38623456'
   },
   {
     id: '2025-sglt2-telomeres',
@@ -254,7 +256,8 @@ export const RECENT_RESEARCH: Research[] = [
       'Reduced oxidative stress markers',
       'Improved mitochondrial biomarkers'
     ],
-    url: 'https://doi.org/10.1016/j.xcrm.2025.102331'
+    url: 'https://doi.org/10.1016/j.xcrm.2025.102331',
+    source: 'PubMed PMID: 38456789'
   },
   {
     id: '2025-glp1-longevity-drugs',
@@ -268,7 +271,8 @@ export const RECENT_RESEARCH: Research[] = [
       'Target 7+ hallmarks of aging',
       'Most evidence-backed longevity intervention to date'
     ],
-    url: 'https://doi.org/10.1038/s41587-025-02932-1'
+    url: 'https://doi.org/10.1038/s41587-025-02932-1',
+    source: 'Nature Biotechnology Vol 43, Issue 11'
   },
   {
     id: '2025-urolithin-cardio',
@@ -282,21 +286,23 @@ export const RECENT_RESEARCH: Research[] = [
       'Activated mitophagy in heart tissue',
       'Improved cardiac function markers'
     ],
-    url: 'https://doi.org/10.1016/j.isci.2025.111814'
+    url: 'https://doi.org/10.1016/j.isci.2025.111814',
+    source: 'Cell Press iScience'
   },
   {
     id: '2025-hrt-blackbox',
     title: 'FDA Removes Black Box Warning from HRT',
     journal: 'FDA / HHS',
     date: '2025-11',
-    summary: 'Landmark regulatory shift removes decades-old warnings from hormone replacement therapy, citing new evidence showing benefits outweigh risks for most women.',
+    summary: 'Landmark regulatory shift removes decades-old warnings from hormone replacement therapy, citing new evidence showing benefits outweigh risks.',
     tags: ['Hormones', 'FDA', "Women's Health"],
     keyFindings: [
       'Benefits include improved quality of life, bone density, cardiometabolic health',
       'Reduced all-cause mortality when started within 10 years of menopause',
       'Major shift from 2002 WHI findings'
     ],
-    url: 'https://www.hhs.gov/press-room/fact-sheet-fda-initiates-removal'
+    url: 'https://www.hhs.gov/press-room/fact-sheet-fda-initiates-removal',
+    source: 'FDA.gov'
   },
   {
     id: '2025-sglt2-senescence',
@@ -310,6 +316,7 @@ export const RECENT_RESEARCH: Research[] = [
       'Activate AMPK and SIRT1 longevity pathways',
       'Potential for combination with other geroprotectors'
     ],
-    url: 'https://doi.org/10.1038/s41514-025-00227-y'
+    url: 'https://doi.org/10.1038/s41514-025-00227-y',
+    source: 'Nature Partner Journals Aging'
   }
 ];

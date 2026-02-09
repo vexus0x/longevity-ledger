@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, ExternalLink, Tag, Search } from 'lucide-react';
+import { FileText, ExternalLink, Tag, Search, BookOpen } from 'lucide-react';
 import { RECENT_RESEARCH } from '../data/longevity';
 
 const Research: React.FC = () => {
@@ -21,7 +21,7 @@ const Research: React.FC = () => {
           <h1 style={{ fontSize: '2.5rem' }}>Research Intelligence</h1>
           <p style={{ maxWidth: '700px' }}>
             Curated peer-reviewed studies, clinical trials, and breakthrough discoveries 
-            shaping the longevity science landscape.
+            shaping the longevity science landscape with proper citations.
           </p>
         </div>
       </section>
@@ -65,7 +65,7 @@ const Research: React.FC = () => {
             </div>
           </div>
 
-          {/* Research List */}
+          {/* Research List - Newsfeed Style */}
           <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
             {filteredResearch.length === 0 ? (
               <div style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -73,30 +73,19 @@ const Research: React.FC = () => {
               </div>
             ) : (
               filteredResearch.map(item => (
-                <div key={item.id} className="research-item" id={item.id} style={{ scrollMarginTop: '100px' }}>
+                <div key={item.id} className="research-item" id={item.id} style={{ scrollMarginTop: '100px', padding: '2rem' }}>
                   <div className="research-meta">
                     <span className="badge badge-secondary">{item.journal}</span>
-                    <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-                      {item.date}
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <BookOpen size={12} /> {item.date}
                     </span>
-                    {item.url && (
-                      <a 
-                        href={item.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.8rem' }}
-                      >
-                        <ExternalLink size={12} />
-                        View Paper
-                      </a>
-                    )}
                   </div>
                   
-                  <h3 className="research-title">{item.title}</h3>
+                  <h3 className="research-title" style={{ fontSize: '1.25rem', marginTop: '0.75rem' }}>{item.title}</h3>
                   
-                  <p className="research-summary">{item.summary}</p>
+                  <p className="research-summary" style={{ marginTop: '0.75rem' }}>{item.summary}</p>
 
-                  <div className="research-findings">
+                  <div className="research-findings" style={{ marginTop: '1rem' }}>
                     <h4>Key Findings</h4>
                     <ul>
                       {item.keyFindings.map((finding, i) => (
@@ -105,13 +94,42 @@ const Research: React.FC = () => {
                     </ul>
                   </div>
 
-                  <div className="tags mt-2">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="tag" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                        <Tag size={10} />
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex justify-between items-center mt-2" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                    <div className="tags">
+                      {item.tags.map(tag => (
+                        <span key={tag} className="tag" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                          <Tag size={10} />
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
+                      {item.source && (
+                        <a 
+                          href={item.url || '#'}
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="nav-link"
+                          style={{ display: 'inline-flex', fontSize: '0.8rem', padding: '0.4rem 0.75rem' }}
+                        >
+                          <BookOpen size={14} style={{ marginRight: '0.25rem' }} />
+                          {item.source}
+                        </a>
+                      )}
+                      {item.url && (
+                        <a 
+                          href={item.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="nav-link"
+                          style={{ display: 'inline-flex', fontSize: '0.8rem', padding: '0.4rem 0.75rem', background: 'var(--surface-light)' }}
+                        >
+                          <ExternalLink size={14} style={{ marginRight: '0.25rem' }} />
+                          View Paper
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))
