@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import { Dna, Users, FlaskConical, FileText, Activity } from 'lucide-react';
 import Home from './pages/Home';
 import Influencers from './pages/Influencers';
+import InfluencerDetail from './pages/InfluencerDetail';
 import Protocols from './pages/Protocols';
 import Research from './pages/Research';
 import './styles/main.css';
@@ -50,6 +51,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/influencers" element={<Influencers />} />
+          <Route path="/influencers/:id" element={<InfluencerDetail />} />
           <Route path="/protocols" element={<Protocols />} />
           <Route path="/research" element={<Research />} />
         </Routes>
